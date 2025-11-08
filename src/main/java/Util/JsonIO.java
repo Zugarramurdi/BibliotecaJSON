@@ -13,7 +13,18 @@ public class JsonIO {
 
     private JsonIO() {}
 
-    public static
+    public static <T> void write(File file, T data) throws IOException {
+
+        file.getParentFile().mkdirs();
+
+        MAPPER.writeValue(file, data);
+    }
+
+    public static <T> T read(File file, Class<T> type) throws IOException {
+
+        return MAPPER.readValue(file, type);
+
+    }
 
 
 }
