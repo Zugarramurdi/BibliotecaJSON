@@ -28,6 +28,15 @@ public class Main {
                 System.out.println("Exportado con exito a: "+json.getAbsolutePath());
             }
 
+            Biblioteca importada = JsonIO.read(json,Biblioteca.class);
+
+            System.out.println("Biblioteca importada: \n");
+            System.out.println("Nombre: "+importada.getNombre());
+            System.out.println("Usuarios: \n");
+            importada.getUsuarios().forEach( u -> System.out.println(" - "+u));
+            System.out.println("Clientes: \n");
+            importada.getClientes().forEach( c -> System.out.println(" - "+c));
+
         }catch(Exception e){
             System.err.println("Error ejecutando la app: "+e.getMessage());;
 
